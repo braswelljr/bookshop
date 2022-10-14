@@ -1,6 +1,9 @@
 import express from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
+import { DatabaseInit } from '@/database/database'
+import router from '@/routes/routes'
 
 const app = express()
 const port = 4000
@@ -13,6 +16,11 @@ app.use(express.json())
 // create application/x-www-form-urlencoded parser
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+// enable cors
+app.use(cors())
+
+// initialize the database
+DatabaseInit()
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
@@ -28,9 +36,8 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/', (req, res) => {
-  res.send('Hello from api')
-})
+// routes
+router
 
 // error handler
 app.use((req, res) => {
