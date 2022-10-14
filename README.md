@@ -1,4 +1,4 @@
-# INNORIK BOOKSHOP (CLIENT)
+# BOOKSHOP
 
 `BOOKSHOP` is a bookshop client for fetching and adding bookshop.
 
