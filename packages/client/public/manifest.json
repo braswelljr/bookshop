@@ -1,0 +1,26 @@
+{
+  "name": "pee2pee",
+  "short_name": "pee2pee",
+  "orientation": "portrait",
+  "start_url": ".",
+  "theme_color": "#ff7b00",
+  "background_color": "#ffffff00",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "256x219",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./icons/icon192.png",
+      "sizes": "256x219",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "256x219",
+      "type": "image/png"
+    }
+  ]
+}

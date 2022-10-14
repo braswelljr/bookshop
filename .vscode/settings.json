@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    "javascript", 
+    "typescript"
+  ],
+  "diffEditor.wordWrap": "on",
+  "scss.validate": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.autoClosingQuotes": "always",
+  // "importCost.largePackageColor": "#ff1900",
+  // "importCost.mediumPackageColor": "#fff200",
+  // "importCost.smallPackageColor": "#00ffee"
+}

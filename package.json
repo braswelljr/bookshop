@@ -1,0 +1,20 @@
+{
+  "name": "innorik",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "serve": "concurrently \"yarn serve:api\" \"yarn dev\"",
+    "lint": "concurrently \"yarn lint:api\" \"yarn lint:client\"",
+    "format": "concurrently \"yarn format:api\" \"yarn format:client\"",
+    "prepare": "husky install"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "husky": "^8.0.1",
+    "wsrun": "^5.2.4"
+  }
+}
