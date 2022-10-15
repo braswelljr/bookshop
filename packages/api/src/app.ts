@@ -1,26 +1,19 @@
 import express from 'express'
-import morgan from 'morgan'
+import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
-import { DatabaseInit } from '@/database/database'
+import DatabaseInit from '@/database/database'
 import router from '@/routes/routes'
 
 const app = express()
-const port = 4000
 
-// logging
-app.use(morgan('dev'))
-
+// log requests to the console
+app.use(logger('dev'))
 // support application/json type post data
 app.use(express.json())
 // create application/x-www-form-urlencoded parser
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-// enable cors
-app.use(cors())
-
-// initialize the database
-DatabaseInit()
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
@@ -36,8 +29,17 @@ app.use((req, res, next) => {
   next()
 })
 
-// routes
-router
+// enable cors
+app.use(cors())
+
+// initialize database
+DatabaseInit()
+
+// add router
+app.use(router)
+
+// catch 404 and forward to error handler
+app.use((req, res) => res.sendStatus(404))
 
 // error handler
 app.use((req, res) => {
@@ -51,6 +53,4 @@ app.use((req, res) => {
   res.render('error')
 })
 
-app.listen(port, () => {
-  console.log(`api listening at http://localhost:${port}`)
-})
+export default app

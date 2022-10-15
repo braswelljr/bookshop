@@ -5,7 +5,7 @@ export const db = new sqlite.Database('database.db', err => {
 })
 
 // initialize the database with the following tables: users, books
-export function DatabaseInit() {
+export default function DatabaseInit() {
   db.serialize(() => {
     // create table for users if it doesn't exist and run on init
     db.run(

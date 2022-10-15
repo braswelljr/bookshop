@@ -1,14 +1,12 @@
-import express from 'express'
-import SignUp from '@/controller/authentication/signup'
-import Login from '@/controller/authentication/login'
+import { Router } from 'express'
+import v1 from '@/routes/v1'
 
 // declare a new router to include all the endpoints
-const router = express.Router()
+const router = Router()
 
 router.options('/', (req, res) => res.send('Hello from api'))
 
-// authentication routes
-router.post('/api/signup', (req, res) => SignUp(req, res))
-router.post('/api/login', (req, res) => Login(req, res))
+// add v1 route
+router.use('/api', v1)
 
 export default router

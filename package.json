@@ -4,9 +4,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "serve": "concurrently \"yarn serve:api\" \"yarn dev\"",
-    "lint": "concurrently \"yarn lint:api\" \"yarn lint:client\"",
-    "format": "concurrently \"yarn format:api\" \"yarn format:client\"",
+    "serve": "concurrently \"(cd ./packages/api & yarn serve:api)\" \"(cd ./packages/client & yarn dev)\"",
+    "lint": "concurrently \"(cd ./packages/api & yarn lint:api)\" \"(cd ./packages/client & yarn lint:client)\"",
+    "format": "concurrently \"(cd ./packages/api & yarn format:api)\" \"(cd ./packages/client & yarn format:client)\"",
     "prepare": "husky install"
   },
   "workspaces": [
