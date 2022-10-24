@@ -2,13 +2,13 @@ import { Request, Response } from 'express'
 import { db } from '@/database/database'
 
 /**
- * Logout - clear user session
+ * LogoutController - clear user session
  * @param {Request} req - request object
  * @param {Response} res - response object
  *
  * @returns {void} - response object
  */
-const Logout = (req: Request, res: Response): void => {
+const LogoutController = (req: Request, res: Response): void => {
   const { id } = req.body
 
   // check if user exists
@@ -52,4 +52,4 @@ const Logout = (req: Request, res: Response): void => {
   })
 }
 
-export default Logout
+export default LogoutController

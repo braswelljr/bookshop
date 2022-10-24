@@ -16,6 +16,7 @@ export default function DatabaseInit() {
         firstname TEXT NOT NULL,
         lastname TEXT NUll,
         username TEXT NOT NULL UNIQUE,
+        profileImage BLOB NULL,
         accessToken TEXT NOT NULL,
         refreshToken TEXT NOT NULL,
         createdAt TEXT NOT NULL,
@@ -29,9 +30,38 @@ export default function DatabaseInit() {
       `CREATE TABLE IF NOT EXISTS books (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
-        category TEXT NOT NULL,
+        category TEXT [] NOT NULL,
+        authors TEXT [] NOT NULL,
         price DOUBLE NOT NULL,
         description TEXT NOT NULL,
+        createdAt TEXT NOT NULL,
+        updatedAt TEXT NOT NULL
+      )`,
+      err => (err ? console.error(err.message) : {})
+    )
+
+    // create table for authors if it doesn't exist and run on init
+    db.run(
+      `CREATE TABLE IF NOT EXISTS authors (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        dateOfBirth TEXT,
+        profileImage BLOB NULL,
+        biography TEXT NULL,
+        createdAt TEXT NOT NULL,
+        updatedAt TEXT NOT NULL
+      )`,
+      err => (err ? console.error(err.message) : {})
+    )
+
+    // create table for orders if it doesn't exist and run on init
+    db.run(
+      `CREATE TABLE IF NOT EXISTS orders (
+        id TEXT PRIMARY KEY,
+        userId TEXT NOT NULL,
+        bookId TEXT NOT NULL,
+        quantity INTEGER NOT NULL,
         createdAt TEXT NOT NULL,
         updatedAt TEXT NOT NULL
       )`,

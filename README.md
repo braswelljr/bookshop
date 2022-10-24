@@ -21,7 +21,7 @@ npm install
 ### Run command
 
 ```bash
-yarn run dev
+yarn run serve
 # or
-npm run dev
+npm run serve
 ```

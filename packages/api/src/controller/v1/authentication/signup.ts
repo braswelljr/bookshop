@@ -5,13 +5,13 @@ import { createToken } from '@/utils/tokens'
 import { hashPassword } from '@/utils/hashPassword'
 
 /**
- * Signup - create new user
+ * SignupController - create new user
  * @param {Request} req - request object
  * @param {Response} res - response object
  *
  * @returns {void} - response object
  */
-const SignUp = (req: Request, res: Response): void => {
+const SignUpController = (req: Request, res: Response): void => {
   const { email, password, firstname, lastname, username } = req.body
 
   // check if email is already in use
@@ -103,4 +103,4 @@ const SignUp = (req: Request, res: Response): void => {
   })
 }
 
-export default SignUp
+export default SignUpController

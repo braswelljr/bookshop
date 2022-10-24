@@ -4,13 +4,13 @@ import { createToken } from '@/utils/tokens'
 import { verifyPassword } from '@/utils/hashPassword'
 
 /**
- * Login - add user session
+ * LoginController - add user session
  * @param {Request} req - request object
  * @param {Response} res - response object
  *
  * @returns {void} - response object
  */
-const Login = (req: Request, res: Response): void => {
+const LoginController = (req: Request, res: Response): void => {
   const { email, password } = req.body
 
   // check if email is available
@@ -102,4 +102,4 @@ const Login = (req: Request, res: Response): void => {
   })
 }
 
-export default Login
+export default LoginController

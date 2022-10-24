@@ -1,16 +1,16 @@
 import { Router } from 'express'
-import SignUp from '@/controller/v1/authentication/signup'
-import Login from '@/controller/v1/authentication/login'
-import Logout from '@/controller/v1/authentication/logout'
+import SignUpController from '@/controller/v1/authentication/signup'
+import LoginController from '@/controller/v1/authentication/login'
+import LogoutController from '@/controller/v1/authentication/logout'
 
 const authentication = Router()
 
 // authentication routes
 // POST /api/v1/signup
-authentication.post('/signup', (req, res) => SignUp(req, res))
+authentication.post('/signup', (req, res) => SignUpController(req, res))
 // POST /api/v1/login
-authentication.post('/login', (req, res) => Login(req, res))
+authentication.post('/login', (req, res) => LoginController(req, res))
 // POST /api/v1/logout
-authentication.post('/logout', (req, res) => Logout(req, res))
+authentication.post('/logout', (req, res) => LogoutController(req, res))
 
 export default authentication
